@@ -1,0 +1,11 @@
+<h1>Welcome to My Application!</h1>
+
+<p>Hello <%= @resource.email %>,</p>
+
+<p>Welcome! You have successfully signed up. Please confirm your email address by clicking the link below:</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>If you did not sign up for this account, please ignore this email.</p>
+
+<p>Thank you!</p>
