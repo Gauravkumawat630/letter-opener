@@ -1,7 +1,8 @@
 require "active_support/core_ext/integer/time"
-#require 'launchy'
+require 'launchy'
 #Launchy.open("http://localhost:3000")
 #Launchy::Browser.register :chrome, Launchy::Chrome.new
+gem 'launchy'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -86,12 +87,15 @@ Rails.application.configure do
   
 # Use letter_opener for email previews in development
 # config/environments/development.rb
+# config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+# config.action_mailer.delivery_method = :letter_opener_web
+# config.letter_opener_web.show_preview = true
 
-config.action_mailer.delivery_method = :letter_opener
-config.action_mailer.perform_deliveries = true
-config.action_mailer.raise_delivery_errors = true
-config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+ #config.action_mailer.perform_deliveries = true
+# config.action_mailer.raise_delivery_errors = true
+ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 #Launchy.browser = 'C:\Users\kumaw\OneDrive\Desktop\aa\my_app\chrome.exe'
+config.action_mailer.delivery_method = :letter_opener
 
 # LetterOpener.configure do |config|
 #   config.location = Rails.root.join('tmp', 'letter_opener')  # Directory for opened emails
@@ -100,7 +104,11 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
 # end
 # LetterOpener.configure do |config|
-#   config.location = Rails.root.join('tmp', 'letter_opener')
-#   config.message_template = 'default'
-#   config.open_email = true  # Make sure this is set to true
- end
+#   config.preview_path = Rails.root.join('tmp', 'letter_opener')
+#   config.open_address = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" # Update this path if necessary
+# end
+config.after_initialize do
+  LetterOpener.configure do |config|
+  end
+end
+end

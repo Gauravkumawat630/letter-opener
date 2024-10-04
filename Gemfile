@@ -1,13 +1,16 @@
 source "https://rubygems.org"
 gem 'devise'
+gem 'launchy'
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+
+
+
 gem "rails", "~> 7.2.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-# Use sqlite3 as the database for Active Record
+gem 'letter_opener_web'
 gem "sqlite3", ">= 1.4"
-# Use the Puma web server [https://github.com/puma/puma]
+ruby "3.1.6"
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -47,12 +50,12 @@ group :development, :test do
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'launchy-rails'
   gem "web-console"
-  gem 'letter_opener', '~> 1.7' # or the latest version available
-gem 'launchy', '~> 3.0', '>= 3.0.1'
-  # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
-  gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+ gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+
+  gem 'letter_opener'
+
 end
 gem 'letter_opener_web', group: :development
 
@@ -60,4 +63,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+
 end
+# Launchy::Browser.register(:chrome, 'C:\Program Files\Google\Chrome\Application.exe') # Update with your actual path
+# Launchy.open("http://localhost:3000/users/sign_up", browser: :chrome)

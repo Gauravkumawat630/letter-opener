@@ -1,11 +1,10 @@
+
 class Users::RegistrationsController < Devise::RegistrationsController
-    # before_action :configure_sign_up_params, only: [:create]
-   
-  
-    # protected
-  
-    # def configure_sign_up_params
-    #   devise_parameter_sanitizer.permit(:sign_up, keys: [:email,:password, :password_confirmation])
-    # end
-  
+  def create
+    super do |resource|
+      if resource.persisted?
+        redirect_to letter_opener_web_url and return
+      end
+    end
   end
+end

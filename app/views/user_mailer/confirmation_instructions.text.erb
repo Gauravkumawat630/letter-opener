@@ -1,0 +1,7 @@
+Welcome to MyApp!
+
+Hi <%= @user.email %>,
+
+Thank you for signing up! Please confirm your account by clicking the link below:
+
+<%= confirmation_url(@user, confirmation_token: @user.confirmation_token) %>
