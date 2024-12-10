@@ -5,7 +5,7 @@ gem 'launchy'
 
 
 
-gem "rails", "~> 7.2.1"
+gem "rails", "~> 7.2.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 gem 'letter_opener_web'
